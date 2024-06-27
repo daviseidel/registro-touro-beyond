@@ -1,24 +1,35 @@
 <script>
+  import { invalidateAll } from "$app/navigation"
   import { onMount } from 'svelte';
   import PocketBase from 'pocketbase';
   const pb = new PocketBase('https://registro-touro-beyond.pockethost.io'); 
 
-  export let data; 
-  let listas;
+  export let data;
+  let boiadeiros = data.records.items;
+  let quemMudou;
+
+  async function reduzirIda(id){
+    const boiadeiro = await pb.collection('boiadeiro').getOne(id);
+    const updateData = {"idas": boiadeiro.idas - 1}
+    const update = await pb.collection('boiadeiro').update(id, updateData);
+  }
+  
   onMount(async () => {
-    listas = await pb.collection('boiadeiro').getFullList();
-    console.log(listas[0]);
-  });
+    pb.collection('boiadeiro').subscribe('*', async function (e) {
+      invalidateAll() 
+    });
+  })
 
 </script>
-
-<!-- Show All records -->
-<!--Esperar finalizar o omMount -->
-{#await listas}
-  {#each listas as record}
-    <div>
+{#if boiadeiros.length > 0}
+  {#each data.records.items as record}
+    <div class="block card p-4 m-2">
       <h2>{record.nome}</h2>
-      <p>{record.quantidade}</p>
+      <p>Idas Restantes: {record.idas}</p>
+      <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Foi no brinquedo</button>
     </div>
   {/each}
-{/await}
+{:else}
+  <h1 class= "m-4"> Sem ninguém pendente </h1>
+{/if}
+

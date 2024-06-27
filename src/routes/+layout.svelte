@@ -32,7 +32,7 @@
 				<a href="/"><strong class="text-xl uppercase">BEYOND TOURO MECÂNICO</strong></a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				
+        <a href="/new" class="btn variant-ghost">Adicionar participante</a>				
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>

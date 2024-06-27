@@ -1,15 +1,29 @@
 <script>
+  import { goto } from '$app/navigation';
+  import PocketBase from 'pocketbase';
+  const pb = new PocketBase('https://registro-touro-beyond.pockethost.io'); 
   // Formulário recolhendo os dado para o touro
-  // Campos: nome, quantidade
+  let nome;
+  let idas;
+
+  async function criarBoiadeiro(){
+    const data = {
+      "nome": nome,
+      "idas": idas
+    }
+    const record = await pb.collection('boiadeiro').create(data);
+    goto("/")
+  } 
+
 </script>
 
 <!-- Formulário recolhendo os dados HTML -->
-<form>
-  <label for="nome">Nome</label>
-  <input type="text" id="nome" name="nome" required>
+<form class="m-4">
+  <label for="nome" class="label">Nome</label>
+  <input type="text" id="nome" name="nome" class="input" bind:value={nome} required>
 
-  <label for="quantidade">Quantidade</label>
-  <input type="number" id="quantidade" name="quantidade" required>
+  <label for="idas">Idas</label>
+  <input type="number" id="quantidade" name="quantidade" class="input" bind:value={idas} required>
 
-  <button type="submit">Enviar</button>
+  <button type="submit" class="btn variant-filled m-2" on:click={criarBoiadeiro}>Enviar</button>
 </form>
