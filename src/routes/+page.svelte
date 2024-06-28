@@ -19,14 +19,14 @@
       invalidateAll() 
     });
   })
-
 </script>
+
 {#if boiadeiros.length > 0}
   {#each data.records.items as record}
     <div class="block card p-4 m-2">
       <h2>{record.nome}</h2>
-      <p>Idas Restantes: {record.idas}</p>
-      <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Foi no brinquedo</button>
+      <p>Ingressos Restantes: {record.idas}</p>
+      <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Utilizar Ingresso</button>
     </div>
   {/each}
 {:else}

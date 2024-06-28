@@ -18,12 +18,12 @@
 </script>
 
 <!-- Formulário recolhendo os dados HTML -->
-<form class="m-4">
+<form class="m-4" on:submit|preventDefault={criarBoiadeiro}>
   <label for="nome" class="label">Nome</label>
   <input type="text" id="nome" name="nome" class="input" bind:value={nome} required>
 
-  <label for="idas">Idas</label>
+  <label for="idas">Ingressos</label>
   <input type="number" id="quantidade" name="quantidade" class="input" bind:value={idas} required>
 
-  <button type="submit" class="btn variant-filled m-2" on:click={criarBoiadeiro}>Enviar</button>
+  <button type="submit" class="btn variant-filled m-2" >Enviar</button>
 </form>
