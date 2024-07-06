@@ -11,7 +11,7 @@
     const data = {
       "nome": nome,
       "idas": idas,
-      "tempo: tempo
+      "tempo": tempo
     }
     const record = await pb.collection('boiadeiro').create(data);
     goto("/")
