@@ -5,7 +5,7 @@
   // Formulário recolhendo os dado para o touro
   let nome;
   let idas;
-  let tempo;
+  let tempo = 0;
 
   async function criarBoiadeiro(){
     const data = {
@@ -26,9 +26,6 @@
 
   <label for="idas">Ingressos</label>
   <input type="number" id="quantidade" name="quantidade" class="input" bind:value={idas} required>
-
-<label for="tempo" class="label">Tempo</label>
-  <input type="text" id="tempo" name="tempo" class="input" bind:value={tempo} required>
 
 
   <button type="submit" class="btn variant-filled m-2" >Enviar</button>
