@@ -25,7 +25,7 @@
 {#if boiadeiros.length > 0}
   {#each data.records.items as record}
     <div class="block card p-4 m-2">
-      <h2>{record.nome}</h2>
+      <h2>{record.nome} {record.contato}</h2>
       <p>Ingressos Restantes: {record.idas}</p>
       <p>Tempo Máximo: {record.tempo}</p>
       <label for="tempo" class="label">Tempo</label>
