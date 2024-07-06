@@ -6,12 +6,14 @@
   let nome;
   let idas;
   let tempo = 0;
+  let contato;
 
   async function criarBoiadeiro(){
     const data = {
       "nome": nome,
       "idas": idas,
-      "tempo": tempo
+      "tempo": tempo,
+      "contato": contato
     }
     const record = await pb.collection('boiadeiro').create(data);
     goto("/")
@@ -26,6 +28,9 @@
 
   <label for="idas">Ingressos</label>
   <input type="number" id="quantidade" name="quantidade" class="input" bind:value={idas} required>
+
+<label for="contato">Contato</label>
+  <input type="text" id="contato" name="contato" class="input" bind:value={contato} required>
 
 
   <button type="submit" class="btn variant-filled m-2" >Enviar</button>
