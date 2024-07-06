@@ -29,7 +29,7 @@
       <p>Ingressos Restantes: {record.idas}</p>
       <p>Tempo Máximo: {record.tempo}</p>
       <label for="tempo" class="label">Tempo</label>
-      <input type="text" id="tempo" name="tempo" class="input" bind:value={tempo} required>
+      <input type="text" id="tempo" name="tempo" class="input mt-2" bind:value={tempo} required>
 
       <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Utilizar Ingresso</button>
     </div>
