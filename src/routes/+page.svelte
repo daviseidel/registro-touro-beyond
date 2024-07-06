@@ -31,7 +31,7 @@
       <label for="tempo" class="label">Tempo</label>
       <input type="text" id="tempo" name="tempo" class="input mt-2" bind:value={tempo} required>
 
-      <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Utilizar Ingresso</button>
+      <button type="button" class="btn variant-filled-primary mt-3" on:click={reduzirIda(record.id)}>Utilizar Ingresso</button>
     </div>
   {/each}
 {:else}
