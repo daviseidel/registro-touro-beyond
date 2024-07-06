@@ -26,6 +26,7 @@
     <div class="block card p-4 m-2">
       <h2>{record.nome}</h2>
       <p>Ingressos Restantes: {record.idas}</p>
+      <p>Tempo: {record.tempo}</p>
       <button type="button" class="btn variant-filled-primary" on:click={reduzirIda(record.id)}>Utilizar Ingresso</button>
     </div>
   {/each}
